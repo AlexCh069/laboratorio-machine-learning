@@ -1,0 +1,57 @@
+Analisis Univariable y proyecciones a analisis multivariable
+
+CreditScore: 
+	- 400 < x < 830 (Recorde de outliers - opcion)
+	- Revisar cantidad de datos y su nueva distribucion)
+	- Aplicar normalizacion o estandarizacion de datos 
+
+Geography:	(Desbalanceo de datos)
+	- Cruzar la variable con el creditscore 
+	- Cruzar con otras variables como el genero (aunque no es muy relevante creo)
+	- Cruzar con Age
+
+Tenure: Muestra una distribucion balanceada para todas las variables categoricas 
+	- Cruzar con NumOfProducts
+	- Cruzar con HasCrCard
+	- Cruzar con Exited
+
+Gender: Variable balanceada
+	- Cruzar con Exited 
+
+Age: Distribucion normal con cola larga a la derecha (hacer recorte de outliers)
+	- Normalizacion de la data
+	- Cruzar con exited y Geography
+
+Tenure: Variable relativamente balanceada [0:10]
+	- Cruzar con HasCrCard
+	- Cruzar con Exited
+
+Balance Distrubution: 
+	- Normalizacion de data, luego cruzamos con la variable objetivo Exited
+
+NumOfProducts: (Variable categorica desbalanceada)
+	- Rivisar la cantidad de 3 o 4 porductos 
+	- Se puede crear una variable con "2 a mas" productos para corregir el desbalanceo
+	- Revisar el nuevo cruzamiento con la variable Exited
+
+HasCrCard: Variable desbalanceada
+	- Cruzar con Exited
+	- Cruzar con Balance
+
+IsActiveMember: (Variable balanceada)
+	- Cruzar con Exited
+
+EstimatedSalary: Variable relativamente balancada en un rango de [0 : 200000]
+	- Normalizacion de data (o estandarizacion)
+	- Cruzar con Exited
+	- Cruzar con HasCrCard
+
+Exited: Variable objetivo desbalanceada
+
+
+NOTA: 	Es posible que muchas de estas variables esten correlacionadas entre si,
+	por ende debemos usar un algoritmo ml que tenga presente esto. 	
+	
+
+CREAR UN SCRIPT QUE ME PERMITA COMPARA LAS DISTRIBUCIONES DE DOS FUENTES DE DATOS QUE TENGAS LAS MISMAS 
+COLUMNAS PERO DIFERENTE SAMPLEO
