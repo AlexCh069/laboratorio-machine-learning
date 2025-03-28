@@ -19,26 +19,75 @@ class ExtractionData:
         except FileNotFoundError:
             self.logger.error(f'File {file_name} not found in {path}')
             return None
+        
+    def smoteenn_resample(self, data: pd.DataFrame,target:str = None) -> pd.DataFrame:
 
-    def split_SMOTEENN(self, data:pd.DataFrame):
-    
+        """SMOTEENN (Synthetic Minority Over-sampling Technique + Edited Nearest Neighbors) 
+        es una técnica de preprocesamiento que combina sobremuestreo con SMOTE y submuestreo 
+        con ENN para mejorar el balance de clases en conjuntos de datos desbalanceados.
+        
+        Parametros:
+            - data[DataFrame]: Datos en formato dataframe para realizar el resampleo 
+            - target[str]: Nombre de la columna que contiene la variable objetivo (opcional)
+        
+        Returns:
+            - data_smoteenn[DataFrame]: Datos resampleados en formato dataframe
+
+        Exceptions:
+            - Exception: Error durante el resampleo con SMOTEENN
+
+        """
+
         try:
-            self.logger.info('Apply SMOTEENN')
-            X = data.drop(data.columns[-1], axis = 1)
-            y = data[data.columns[-1]]
+            if target is None:
+                X = data.drop(data.columns[-1], axis = 1)
+                y = data[data.columns[-1]]
 
-            smotee_nn = SMOTEENN(random_state=69)
-            x_resampled, y_resampled = smotee_nn.fit_resample(X,y)
+                smotee_nn = SMOTEENN(random_state=69)
+                x_resampled, y_resampled = smotee_nn.fit_resample(X,y)
 
-            x_train, x_test, y_train, y_test = train_test_split(x_resampled, y_resampled, train_size = 0.3, random_state=69)
-            return x_train, x_test, y_train, y_test
+                data_smoteenn = pd.DataFrame(x_resampled, columns = X.columns)
+                data_smoteenn['Exited'] = pd.Series(y_resampled)
+                self.logger.info("SMOTEEN RESAMPLING")
 
+                return data_smoteenn
+            
+            else:
+                X = data.drop(target, axis = 1)
+                y = data[target] 
+                smotee_nn = SMOTEENN(random_state=69)
+                x_resampled, y_resampled = smotee_nn.fit_resample(X,y)
+
+                data_smoteenn = pd.DataFrame(x_resampled, columns = X.columns)
+                data_smoteenn['Exited'] = pd.Series(y_resampled)
+                self.logger.info("SMOTEEN RESAMPLING")
+                return data_smoteenn
+            
         except Exception as e:
             self.logger.error("Don't apply SMOTEENN")
             return None
 
 
-    def split_normal(self, data: pd.DataFrame):
+
+    # def split_SMOTEENN(self, data:pd.DataFrame):
+
+    #     try:
+    #         self.logger.info('Apply SMOTEENN')
+    #         X = data.drop(data.columns[-1], axis = 1)
+    #         y = data[data.columns[-1]]
+
+    #         smotee_nn = SMOTEENN(random_state=69)
+    #         x_resampled, y_resampled = smotee_nn.fit_resample(X,y)
+
+    #         x_train, x_test, y_train, y_test = train_test_split(x_resampled, y_resampled, train_size = 0.3, random_state=69)
+    #         return x_train, x_test, y_train, y_test
+
+    #     except Exception as e:
+    #         self.logger.error("Don't apply SMOTEENN")
+    #         return None
+
+
+    def split_data(self, data: pd.DataFrame):
         # Implementación para separar datos de entrenamiento y prueba
         try:
             self.logger.info('Data successfully split')
