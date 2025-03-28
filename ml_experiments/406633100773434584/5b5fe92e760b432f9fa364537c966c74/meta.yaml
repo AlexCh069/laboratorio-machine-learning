@@ -1,0 +1,16 @@
+artifact_uri: file:///C:\Users\Ares\Documents\LIBROS\PLATZI CURSOS\CIENCIA DE DATOS\MACHINE
+  LEARNING\laboratorio-machine-learning\ml_experiments/406633100773434584/5b5fe92e760b432f9fa364537c966c74/artifacts
+end_time: 1743183461307
+entry_point_name: ''
+experiment_id: '406633100773434584'
+lifecycle_stage: active
+run_id: 5b5fe92e760b432f9fa364537c966c74
+run_name: xgb_smoteenn
+run_uuid: 5b5fe92e760b432f9fa364537c966c74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743183446503
+status: 3
+tags: []
+user_id: Ares

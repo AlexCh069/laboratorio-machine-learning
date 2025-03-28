@@ -53,5 +53,9 @@ NOTA: 	Es posible que muchas de estas variables esten correlacionadas entre si,
 	por ende debemos usar un algoritmo ml que tenga presente esto. 	
 	
 
-CREAR UN SCRIPT QUE ME PERMITA COMPARA LAS DISTRIBUCIONES DE DOS FUENTES DE DATOS QUE TENGAS LAS MISMAS 
-COLUMNAS PERO DIFERENTE SAMPLEO
+LISTO: CREAR UN SCRIPT QUE ME PERMITA COMPARA LAS DISTRIBUCIONES DE DOS FUENTES DE DATOS QUE TENGAS LAS MISMAS COLUMNAS PERO DIFERENTE SAMPLEO
+
+28/04: 
+	- Añadir las metricas de precision, sensibilidad y especificidad para comparar los modelos ml
+	- Crear un scrip que me permita hacer predicciones con cada uno de los modelos generados y obtener los resultados en valor probabilistico
+	- Probar otros modelos de ml
