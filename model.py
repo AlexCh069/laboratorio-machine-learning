@@ -7,6 +7,7 @@ from utils.utils import ExtractionData
 import os
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, roc_auc_score, average_precision_score
 import xgboost as xgb
 
@@ -27,24 +28,24 @@ data_resample = util.smoteenn_resample(data,'Exited')
 x_smot_train, x_smot_test, y_smot_train, y_smot_test = util.split_data(data_resample) # Resampleo de data
 
 # Iniciar y registrar un experimento
-with mlflow.start_run(run_name="xgb_smoteenn"):
+with mlflow.start_run(run_name="extra_trees_smoteen"):
 
     # Model Training --------------------------------------------------------------------------------
-    rf = xgb.XGBClassifier(use_label_encoder = False, eval_metric = 'logloss')
+    rf = ExtraTreesClassifier(random_state=42)
 
+# Definir el espacio de búsqueda de hiperparámetros
     param_grid = {
-    'n_estimators': [100, 150, 200, 250, 300],       # Número de árboles
-    'learning_rate': np.arange(0.01, 0.051, 0.03), # Tasa de aprendizaje
-    'max_depth': [3, 5, 7],            # Profundidad máxima de los árboles
-    'subsample': [0.05, 0.8, 1.0],           # Fracción de datos usada por árbol
-    'colsample_bytree': [0.4, 0.6, 0.8, 1.0]     # Fracción de features usadas por árbol
+    'n_estimators': [50, 100, 200],  # Número de árboles
+    'max_features': ['sqrt', 'log2', None],  # Número de características a considerar en cada split
+    'min_samples_split': [2, 5, 10],  # Mínimo de muestras para dividir un nodo
+    'min_samples_leaf': [1, 2, 4],  # Mínimo de muestras en una hoja
+    'bootstrap': [True, False]  # Uso de bootstrap
     }
-
 
 
     grid_search = GridSearchCV(estimator=rf, 
                                param_grid=param_grid, 
-                               cv=2, 
+                               cv=3, 
                                verbose=2, 
                                n_jobs=-1,
                                scoring='accuracy')

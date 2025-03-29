@@ -28,7 +28,7 @@ def convert_numerical(features):
 def query_example():
     features = convert_numerical(request.args.get('feats').split(','))
     response = {
-        'response': [int(x) for x in model.predict([features])]
+        'response': [x for x in model.predict_proba([features])]
     }
     return json.dumps(response)
 
