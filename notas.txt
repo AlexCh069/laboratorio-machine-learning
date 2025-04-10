@@ -56,6 +56,6 @@ NOTA: 	Es posible que muchas de estas variables esten correlacionadas entre si,
 LISTO: CREAR UN SCRIPT QUE ME PERMITA COMPARA LAS DISTRIBUCIONES DE DOS FUENTES DE DATOS QUE TENGAS LAS MISMAS COLUMNAS PERO DIFERENTE SAMPLEO
 
 28/04: 
-	- Añadir las metricas de precision, sensibilidad y especificidad para comparar los modelos ml
+	- Añadir las metricas de precision, sensibilidad y especificidad para comparar los modelos ml (LISTO)
 	- Crear un scrip que me permita hacer predicciones con cada uno de los modelos generados y obtener los resultados en valor probabilistico
-	- Probar otros modelos de ml
+	- Probar otros modelos de ml (LISTO)

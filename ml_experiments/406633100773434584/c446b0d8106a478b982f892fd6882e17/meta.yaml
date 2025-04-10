@@ -1,9 +1,10 @@
 artifact_uri: file:///C:\Users\Ares\Documents\LIBROS\PLATZI CURSOS\CIENCIA DE DATOS\MACHINE
   LEARNING\laboratorio-machine-learning\ml_experiments/406633100773434584/c446b0d8106a478b982f892fd6882e17/artifacts
+deleted_time: 1743369743491
 end_time: 1743185262275
 entry_point_name: ''
 experiment_id: '406633100773434584'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: c446b0d8106a478b982f892fd6882e17
 run_name: xgb_smoteenn
 run_uuid: c446b0d8106a478b982f892fd6882e17

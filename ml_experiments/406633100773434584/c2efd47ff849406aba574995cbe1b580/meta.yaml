@@ -1,9 +1,10 @@
 artifact_uri: file:///C:\Users\Ares\Documents\LIBROS\PLATZI CURSOS\CIENCIA DE DATOS\MACHINE
   LEARNING\laboratorio-machine-learning\ml_experiments/406633100773434584/c2efd47ff849406aba574995cbe1b580/artifacts
+deleted_time: 1743369755627
 end_time: 1743181165217
 entry_point_name: ''
 experiment_id: '406633100773434584'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: c2efd47ff849406aba574995cbe1b580
 run_name: rf_smoteenn
 run_uuid: c2efd47ff849406aba574995cbe1b580
